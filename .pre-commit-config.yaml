@@ -1,0 +1,64 @@
+repos:
+  # Standard hooks
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-added-large-files
+      - id: check-ast
+      - id: check-case-conflict
+      - id: check-docstring-first
+      - id: check-merge-conflict
+      - id: check-symlinks
+      - id: check-xml
+      - id: check-yaml
+      - id: debug-statements
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+      - id: trailing-whitespace
+      - id: fix-byte-order-marker
+
+
+  - repo: local
+    hooks:
+      - id: ament_lint_cmake
+        name: ament_lint_cmake
+        description: Check format of CMakeLists.txt files.
+        entry: ament_lint_cmake
+        language: system
+        files: CMakeLists\.txt$
+
+  - repo: local
+    hooks:
+      - id: ament_xmllint
+        name: ament_xmllint
+        description: Check if xml files match the specification
+        entry: ament_xmllint
+        language: system
+
+  - repo: local
+    hooks:
+      - id: ament_copyright
+        name: ament_copyright
+        description: Check if copyright notice is available in all files.
+        entry: ament_copyright
+        language: system
+        exclude: doc/conf.py
+
+  # Spellcheck in comments and docs
+  # skipping of *.svg files is not working...
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.3.0
+    hooks:
+      - id: codespell
+        args: ['--write-changes']
+        exclude: CHANGELOG\.rst|\.(svg|pyc)$
+
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.29.2
+    hooks:
+      - id: check-github-workflows
+        args: ["--verbose"]
+      - id: check-github-actions
+        args: ["--verbose"]
+      - id: check-dependabot
+        args: ["--verbose"]

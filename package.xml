@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>industrial_robot_motion_interfaces</name>
+  <version>0.0.0</version>
+  <description>Message and action definitions for defining industrial robot motions such as LIN, PTP, CIRC.</description>
+  <maintainer email="exner@fzi.de">Felix Exner</maintainer>
+  <license>BSD-3-Clause</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>rosidl_default_generators</buildtool_depend>
+
+  <exec_depend>rosidl_default_runtime</exec_depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <depend>geometry_msgs</depend>
+
+  <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <export>
+    <rosindex>
+      <tags>
+        <tag>messages</tag>
+      </tags>
+    </rosindex>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
