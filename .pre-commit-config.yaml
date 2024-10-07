@@ -33,6 +33,7 @@ repos:
         name: ament_xmllint
         description: Check if xml files match the specification
         entry: ament_xmllint
+        pass_filenames: false
         language: system
 
   - repo: local
